@@ -14,6 +14,7 @@ void menu();
 void inicializar();
 void pop();
 void push();
+void exibir();
 //--------------------------
 
 
@@ -32,7 +33,8 @@ void menu()
 		cout << "1 - Inicializar Pilha \n";
 		cout << "2 - Inserir elemento (Push) \n";
 		cout << "3 - Remover elementos (Pop) \n";
-		cout << "4 - Sair \n";
+		cout << "4 - Exibir elementos \n";
+		cout << "5 - Sair \n";
 
 
 		cout << "Opcao: ";
@@ -46,7 +48,9 @@ void menu()
 			break;
 		case 3: pop();
 			break;
-		case 4:
+		case 4: exibir();
+			break;
+		case 5:
 			return;
 		default:
 			break;
@@ -83,17 +87,47 @@ void push()
 		return;
 	}
 
-	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
+		cout << "Digite o elemento: ";
+		cin >> novo->valor;
+		novo->prox = topo;
+		topo = novo;
 
+
+	cout << "Elemento " << novo->valor << " enserido no topo da lista \n";
 
 }
 
 void pop()
 {
 
-	
+	if (topo == NULL) {
+		cout << "Lista vazia \n";
+		return;
+	}
+
+	NO* aux = topo;
+
+	cout << "O elemento a ser excluido e o " << aux->valor << endl;
+	topo = topo->prox;
+	free(aux);
+
+	cout << "Elemento do topo removido \n";
+
+}
+
+void exibir() {
+
+	NO* aux = topo;
+
+	if (topo == NULL) {
+		cout << "Lista vazia! \n";
+		return;
+	}
+
+	while (aux != NULL) {
+		cout << " " << aux->valor << " ";
+		aux = aux->prox;
+	}
 
 }
 
