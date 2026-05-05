@@ -36,7 +36,7 @@ void menu()
 		cout << "4 - Exibir elementos \n";
 		cout << "5 - Sair \n";
 
-
+		
 		cout << "Opcao: ";
 		cin >> op;
 
